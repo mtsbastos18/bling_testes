@@ -1,12 +1,18 @@
 <?php 
     $array = array(1,2,3,4,5,6);
-    $k = 1;
+    $k =2 ;
 
     echo "Array original: <br>";  
     echo json_encode($array) . '<br><br>'; 
 
     for ($i=0; $i < $k; $i++) { // laço vai rodar conforme o numero de rotações enviado
+        $array = rotaciona($array);
+    }
 
+    echo "Array rotacionado: <br>";  
+    echo json_encode($array);
+
+    function rotaciona($array) {
         $primeiro = $array[0]; // salva o primeiro item do array
         $tamanho = count($array); 
 
@@ -15,8 +21,7 @@
         }
 
         $array[$j] = $primeiro; // ultimo indice do array recebe o valor do primeiro indice original.
-    }
 
-    echo "Array rotacionado: <br>";  
-    echo json_encode($array);
+        return $array;
+    }
 ?>
